@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createBlog, deleteBlog, readBlog, updateBlog } from "../Controller/blogController.js";
+import { createBlog, deleteBlog, readBlog, readSpecificBlog, updateBlog } from "../Controller/blogController.js";
 
 let blogRouter = Router()
 blogRouter
@@ -10,6 +10,7 @@ blogRouter
 
 blogRouter
 .route("/:blogId")
+.get(readSpecificBlog)
 .patch(updateBlog)
 .delete(deleteBlog)
 

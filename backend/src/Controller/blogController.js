@@ -38,6 +38,27 @@ export let readBlog = async (req, res)=> {
     }
 }
 
+// Read specific blog 
+export let readSpecificBlog = async (req, res) => {
+    let blogId = req.params.blogId
+
+    try {
+        let result = await Blog.findById(blogId)
+
+        res.status(200).json({
+            success: true,
+            message: "Book read successfully.",
+            result : result 
+        })
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+
+
 // Update a blog
 export let updateBlog = async (req, res)=> {
     let blogId = req.params.blogId 
