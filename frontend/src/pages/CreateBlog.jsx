@@ -11,7 +11,7 @@ const CreateBlog = () => {
 
     let data = {
       title : title,
-      description: description
+      content: description
     }
 
     try {
@@ -29,7 +29,7 @@ const CreateBlog = () => {
   }
   return (
     <div>
-      <form>
+      <form onSubmit = {onSubmit}>
       <div>
           <label htmlFor="title"> Title: </label>
           <input type="text" placeholder="e.g. The rise of AI" id='title'
@@ -51,7 +51,7 @@ const CreateBlog = () => {
             }}
             ></textarea>
         </div>
-        <button type = 'submit'>Create</button>
+        <button type = "submit">Create</button>
       </form>
     </div>
   )
